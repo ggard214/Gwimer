@@ -14,7 +14,12 @@ const Splash = (authenticated, setAuthenticated) => {
             <img id="controller" src={controller} alt="Gwimer" />
           </div>
           <div id="right">
-            <LoginForm id="lform" />
+            <div id="log">
+              <LoginForm id="lform" />
+            </div>
+            <div id="sign">
+              <p>You can sign up by clicking here</p>
+            </div>
           </div>
         </div>
         <div id="feets">

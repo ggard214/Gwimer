@@ -43,10 +43,17 @@
   height: 800px;
 }
 
-#lform {
+#log {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 25%;
+  margin-top: 40%;
+  width: 40%;
+}
+
+#sign {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 40%;
 }
