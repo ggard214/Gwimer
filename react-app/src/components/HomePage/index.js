@@ -3,12 +3,12 @@ import React from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
 
-const Home = () => {
+const Home = ({ setAuthenticated }) => {
   return (
     <>
       <div id="mainhome">
         <div>
-          <NavBar />
+          <NavBar setAuthenticated={setAuthenticated} />
         </div>
         <div>
           <div>
