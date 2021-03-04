@@ -3,6 +3,7 @@ import React from "react";
 import LoginForm from "../auth/LoginForm";
 import Footer from "../Footer";
 import controller from "./splashimgs/controllerblank.png";
+import { authenticate } from "../../services/auth";
 
 const Splash = (authenticated, setAuthenticated) => {
   return (
