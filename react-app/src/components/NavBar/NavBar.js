@@ -1,26 +1,18 @@
+import './nav.css'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+import homeImg from './Imgs/controller1.png'
 
 const NavBar = ({ setAuthenticated }) => {
   return (
-    <nav>
+    <nav id="nav">
       <ul>
         <li>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
+          <NavLink to="/home" exact={true} activeClassName="active">
+            <img id="homecont" src={homeImg} alt="Home"></img>
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
+          </li>
         <li>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users
