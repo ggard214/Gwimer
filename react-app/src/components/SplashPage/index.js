@@ -5,9 +5,10 @@ import LoginForm from "../auth/LoginForm";
 import Footer from "../Footer";
 import controller from "./splashimgs/controllerblank.png";
 
-const Splash = (authenticated, setAuthenticated, props) => {
+const Splash = ({authenticated, setAuthenticated}) => {
+  if (authenticated) return <Redirect to="/home"/>;
+  
   return (
-      
       <>
         <div id="homediv">
           <div id="homespread">
@@ -16,7 +17,8 @@ const Splash = (authenticated, setAuthenticated, props) => {
             </div>
             <div id="right">
               <div id="log">
-                <LoginForm id="lform" setAuthenticated={setAuthenticated} />
+                <LoginForm id="lform" 
+                setAuthenticated={setAuthenticated} />
               </div>
               <div id="sign">
                 <p>
