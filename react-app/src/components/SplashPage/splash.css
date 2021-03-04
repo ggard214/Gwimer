@@ -1,0 +1,52 @@
+#homediv {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100%; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 660px;
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+}
+
+#homespread {
+  display: flex;
+  flex-direction: row;
+}
+
+#feets {
+  height: 75px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+#left {
+  width: 50%;
+  height: 660px;
+  background-image: url(./splashimgs/splatter.png);
+}
+
+#controller {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  width: 40%;
+}
+
+#right {
+  background-color: grey;
+  width: 50%;
+  height: 660px;
+}
+
+#lform {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  width: 40%;
+}

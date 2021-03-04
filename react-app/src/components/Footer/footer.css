@@ -1,0 +1,27 @@
+#foots {
+    background-color: lightgray;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#linkarea {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.greghead {
+    height: 50px;
+    border-radius: 100px;
+    margin-left: 15px;
+}
+
+.gitcircle {
+    height: 50px;
+}
+
+.linkedin {
+    height: 50px;
+}
