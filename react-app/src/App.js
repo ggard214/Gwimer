@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Splash from "./components/SplashPage";
 import Home from "./components/HomePage";
+import Profile from "./components/Profile";
 import SignUpForm from "./components/auth/SignUpForm";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
           <Home setAuthenticated={setAuthenticated} />
+        </ProtectedRoute>
+        <ProtectedRoute path="/profile" exact={true} authenticated={authenticated}>
+          <Profile setAuthenticated={setAuthenticated} />
         </ProtectedRoute>
         <ProtectedRoute
           path="/users"
