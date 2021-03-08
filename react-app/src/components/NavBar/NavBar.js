@@ -1,8 +1,8 @@
-import './nav.css'
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
-import homeImg from './Imgs/controller1.png'
+import "./nav.css";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import LogoutButton from "../auth/LogoutButton";
+import homeImg from "./Imgs/controller1.png";
 
 const NavBar = ({ setAuthenticated }) => {
   return (
@@ -12,7 +12,12 @@ const NavBar = ({ setAuthenticated }) => {
           <NavLink to="/home" exact={true} activeClassName="active">
             <img id="homecont" src={homeImg} alt="Home"></img>
           </NavLink>
-          </li>
+        </li>
+        <li>
+          <NavLink to="/profile" exact={true} activeClassName="active">
+            Profile
+          </NavLink>
+        </li>
         <li>
           <NavLink to="/users" exact={true} activeClassName="active">
             Users
@@ -24,6 +29,6 @@ const NavBar = ({ setAuthenticated }) => {
       </ul>
     </nav>
   );
-}
+};
 
 export default NavBar;
