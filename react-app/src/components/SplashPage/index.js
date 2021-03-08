@@ -1,6 +1,6 @@
 import "./splash.css";
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import LoginForm from "../auth/LoginForm";
 import Footer from "../Footer";
 import controller from "./splashimgs/controllerblank.png";
