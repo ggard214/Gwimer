@@ -34,7 +34,6 @@ def profile_form_submit(user_id):
     if form.validate_on_submit():
         profile = Profile.query.filter(Profile.user_id==user_id).first()
         if profile:
-                
             profile.about_me=form.data['about_me']
             profile.location=form.data['location']
             profile.nin_gt=form.data['nin_gt']
