@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
 from app.models import User, Profile, Profpic, db
+from app.forms import ProfileForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -26,4 +27,32 @@ def user_profile(user_id):
         return profile[0].to_dict()
     return {}
 
+@user_routes.route('/profile/<int:user_id>', methods=['PUT'])
+def profile_form_submit(user_id):
+    form = ProfileForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        profile = Profile.query.filter(Profile.user_id==user_id)
+        if profile[0]:
+            profile.aboutMe=form.data['about_me'],
+            profile.location=form.data['location'],
+            profile.nin_gt=form.data['nin_gt'],
+            profile.ps_gt=form.data['ps_gt'],
+            profile.xbox_gt=form.data['xbox_gt'],
+            profile.steam_gt=form.data['steam_gt'],
+            profile.discord_gt=form.data['discord_gt'],
+        else:
+            profile = Profile(
+                about_me=form.data['about_me'],
+                location=form.data['location'],
+                nin_gt=form.data['nin_gt'],
+                ps_gt=form.data['ps_gt'],
+                xbox_gt=form.data['xbox_gt'],
+                steam_gt=form.data['steam_gt'],
+                discord_gt=form.data['discord_gt'],
+                user_id=user_id
+            )
 
+        db.session.add(profile)
+        db.session.commit()
+        return profile[0].to_dict()
