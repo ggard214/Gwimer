@@ -27,7 +27,7 @@ const NavBar = ({ setAuthenticated }) => {
           </NavLink>
         </li>
         <li>
-          {user.id && (<NavLink to={`/profile`} exact={true} activeClassName="active">
+          {user.id && (<NavLink to={`/profile/${user.id}`} exact={true} activeClassName="active">
             Profile
           </NavLink>)}
         </li>

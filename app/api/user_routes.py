@@ -22,27 +22,26 @@ def user(id):
 @user_routes.route('/profile/<int:user_id>')
 @login_required
 def user_profile(user_id):
-    profile = Profile.query.filter(Profile.user_id==user_id)
-    if profile[0]:
-        return profile[0].to_dict()
+    profile = Profile.query.filter(Profile.user_id==user_id).first()
+    if profile:
+        return profile.to_dict()
     return {}
 
 @user_routes.route('/profile/<int:user_id>', methods=['PUT'])
-@login_required
 def profile_form_submit(user_id):
     form = ProfileForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        profile = Profile.query.filter(Profile.user_id==user_id)
+        profile = Profile.query.filter(Profile.user_id==user_id).first()
         if profile:
-                profile=Profile(
-            about_me=form.data['about_me'],
-            location=form.data['location'],
-            nin_gt=form.data['nin_gt'],
-            ps_gt=form.data['ps_gt'],
-            xbox_gt=form.data['xbox_gt'],
-            steam_gt=form.data['steam_gt'],
-            discord_gt=form.data['discord_gt'],)
+                
+            profile.about_me=form.data['about_me']
+            profile.location=form.data['location']
+            profile.nin_gt=form.data['nin_gt']
+            profile.ps_gt=form.data['ps_gt']
+            profile.xbox_gt=form.data['xbox_gt']
+            profile.steam_gt=form.data['steam_gt']
+            profile.discord_gt=form.data['discord_gt']
         else:
             profile = Profile(
                 user_id=user_id,
@@ -55,7 +54,6 @@ def profile_form_submit(user_id):
                 discord_gt=form.data['discord_gt'],
                 
             )
-        print("!!!!!!!", profile)
         db.session.add(profile)
         db.session.commit()
         return profile.to_dict()
