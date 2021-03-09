@@ -3,7 +3,7 @@ from .db import db
 class Profile(db.Model):
   __tablename__ = 'profiles'
 
-  id = db.Column(db.Integer, primary_key=True)
+  id = db.Column(db.Integer, primary_key=True, nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
   about_me = db.Column(db.String(255))
   location = db.Column(db.String(50))
@@ -19,7 +19,7 @@ class Profile(db.Model):
       return {
           "id": self.id,
           "user_id": self.user_id,
-          "aboutMe": self.about_me,
+          "about_me": self.about_me,
           "location": self.location,
           "nin_gt": self.nin_gt,
           "ps_gt": self.ps_gt,

@@ -18,5 +18,5 @@ def seed_profile():
 
 
 def undo_profile():
-    db.session.execute('TRUNCATE profiles CASCADE;')
+    db.session.execute('TRUNCATE profiles RESTART IDENTITY CASCADE;')
     db.session.commit()

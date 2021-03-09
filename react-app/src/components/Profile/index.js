@@ -63,7 +63,7 @@ if (!userInfo) return null;
             />
           </div>
           <div>
-            <p>About me: {userProfile.aboutMe}</p>
+            <p>About me: {userProfile.about_me}</p>
           </div>
           <div>
             <p>Location: {userProfile.location}</p>
