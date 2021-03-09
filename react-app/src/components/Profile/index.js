@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as profileActions from "../../store/profile";
 import { authenticate } from "../../services/auth.js";
 import { useParams } from "react-router-dom";
+import AboutUserForm from './userForm';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
 import { setUser } from "../../store/session";
@@ -16,8 +17,14 @@ import discord from './profimg/discord.png';
 const Profile = ({ sessionUser, setAuthenticated }) => {
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
-  console.log("userprofile?", userProfile);
+  const userInfo = useSelector((state) => state.session.user)
+  const [info, setInfo] = useState(false);
+  console.log("userprofile info", userProfile);
   let user = {};
+
+  function toggle() {
+    setInfo(!info);
+  }
 
   useEffect(() => {
     (async () => {
@@ -27,6 +34,7 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
       dispatch(setUser(user));
     })();
   }, [dispatch, user.id]);
+if (!userInfo) return null;
 
   return (
     <>
@@ -37,12 +45,23 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
         <div id="userdata">
           <div id="propic"></div>
           <div id="name">
-            <h1>Welcome back, {user.Usernam}</h1>
+            <h1>Welcome back, {userInfo.username}</h1>
           </div>
           <br></br>
           <hr></hr>
         </div>
         <div id="about">
+          <button id="editprofilebutton" onClick={toggle}>
+            Edit Profile
+          </button>
+          <div id="component-wrapper" className={info ? "" : "hidden"}>
+            <AboutUserForm
+              userProfile={userProfile}
+              info={info}
+              setInfo={setInfo}
+              setAuthenticated={setAuthenticated}
+            />
+          </div>
           <div>
             <p>About me: {userProfile.aboutMe}</p>
           </div>
