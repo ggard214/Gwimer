@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as profileActions from "../../store/profile";
 import { authenticate } from "../../services/auth.js";
-import { useParams } from "react-router-dom";
 import AboutUserForm from './userForm';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
@@ -17,9 +16,10 @@ import discord from './profimg/discord.png';
 const Profile = ({ sessionUser, setAuthenticated }) => {
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.profile);
-  const userInfo = useSelector((state) => state.session.user)
+  const userInfo = useSelector((state) => state.session.user);
+  const userPic = useSelector((state) => state.profpic);
   const [info, setInfo] = useState(false);
-  console.log("userprofile info", userProfile);
+  console.log("profpic", userPic);
   let user = {};
 
   function toggle() {

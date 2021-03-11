@@ -11,5 +11,5 @@ def seed_profpics():
     db.session.commit()
 
 def undo_profpics():
-    db.session.execute('TRUNCATE profiles CASCADE;')
+    db.session.execute('TRUNCATE profiles RESTART IDENTITY CASCADE;')
     db.session.commit()

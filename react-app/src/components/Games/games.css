@@ -1,0 +1,13 @@
+#maingames {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+#feets {
+  height: 75px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
