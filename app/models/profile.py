@@ -14,7 +14,7 @@ class Profile(db.Model):
   discord_gt = db.Column(db.String(50))
 
   user = db.relationship("User", back_populates="profile")
-
+  
   def to_dict(self):
       return {
           "id": self.id,
@@ -25,5 +25,5 @@ class Profile(db.Model):
           "ps_gt": self.ps_gt,
           "xbox_gt": self.xbox_gt,
           "steam_gt": self.steam_gt,
-          "discord_gt": self.discord_gt
+          "discord_gt": self.discord_gt,
       }
