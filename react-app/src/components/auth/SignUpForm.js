@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../services/auth";
 
 const SignUpForm = ({ authenticated, setAuthenticated, setShowSignModal }) => {
-  const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -15,7 +13,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, setShowSignModal }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await dispatch(signUp(username, email, password));
+      const user = await signUp(username, email, password);
       if (!user.errors) {
         setAuthenticated(true);
       } else {
@@ -59,7 +57,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, setShowSignModal }) => {
         </ul>
       </div>
       <div>
-        <label>User Name</label>
+        <label>User Name </label>
         <input
           type="text"
           name="username"
@@ -68,7 +66,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, setShowSignModal }) => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label>Email </label>
         <input
           type="text"
           name="email"
@@ -77,7 +75,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, setShowSignModal }) => {
         ></input>
       </div>
       <div>
-        <label>Password</label>
+        <label>Password </label>
         <input
           type="password"
           name="password"
@@ -86,7 +84,7 @@ const SignUpForm = ({ authenticated, setAuthenticated, setShowSignModal }) => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Repeat Password </label>
         <input
           type="password"
           name="repeat_password"
