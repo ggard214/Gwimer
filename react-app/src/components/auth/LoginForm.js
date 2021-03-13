@@ -40,7 +40,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       </div>
       <div id="logform">
         <div id="logtext">
-          <h2 id="h2text">Sign in to Gwimer</h2>
+          <h2 id="h2text">Sign in</h2>
+          <br></br>
         </div>
         <div id="inemail">
           <label htmlFor="email" id="logemail">

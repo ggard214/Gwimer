@@ -39,12 +39,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Airbnb;
 }
 
 #modal-content > form > div > input {
   border-radius: 8px;
-  width: 520px;
+  width: 400px;
   height: 50px;
   border: 0.25px solid rgb(170, 166, 166);
   padding-left: 10px;
@@ -55,9 +54,9 @@
 #modal-content > form > button {
   background: linear-gradient(
     to right,
-    rgb(230, 30, 77) 0%,
-    rgb(227, 28, 95) 50%,
-    rgb(215, 4, 102) 100%
+    rgb(145, 2, 35) 0%,
+    rgb(201, 1, 68) 50%,
+    rgb(250, 0, 117) 100%
   );
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     "Helvetica Neue", sans-serif;
