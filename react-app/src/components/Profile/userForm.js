@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { submitProfile } from "../../store/profile";
 import "./proform.css";
 
-function AboutUserForm({ userProfile, info, setInfo }) {
+const AboutUserForm = ({ userProfile, info, setInfo }) => {
   const { userId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -50,71 +50,90 @@ function AboutUserForm({ userProfile, info, setInfo }) {
 
   return (
     <>
-      <h1></h1>
-      <form id="about-user-form-wrap" onSubmit={onSubmit}>
-        <label>
-          About Me
-          <input
-            type="text"
-            value={about_me}
-            onChange={(e) => setAbout(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          Location
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          Nintendo Gamer Tag
-          <input
-            type="text"
-            value={nin_gt}
-            onChange={(e) => setNin(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          Playstation Gamer Tag
-          <input
-            type="text"
-            value={ps_gt}
-            onChange={(e) => setPs(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          Xbox Gamer Tag
-          <input
-            type="text"
-            value={xbox_gt}
-            onChange={(e) => setXbox(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          Steam Gamer Tag
-          <input
-            type="text"
-            value={steam_gt}
-            onChange={(e) => setSteam(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          Dicord User Name
-          <input
-            type="text"
-            value={discord_gt}
-            onChange={(e) => setDiscord(e.target.value)}
-          ></input>
-        </label>
-        <div>
-          <button onClick={() => history.push(`/profile/${userId}`)}>
-            Cancel
-          </button>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <div id="formdiv">
+        <h1></h1>
+        <form id="about-user-form-wrap" onSubmit={onSubmit}>
+          <label id="labels">
+            About Me:
+            <input
+              type="text"
+              id="abouttext"
+              value={about_me}
+              onChange={(e) => setAbout(e.target.value)}
+            ></input>
+          </label>
+          <label id="labels">
+            Location:
+            <input
+              type="text"
+              id="abouttext"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            ></input>
+          </label>
+          <br></br>
+          <br></br>
+          <label id="labels">
+            Nintendo Gamer Tag:
+            <input
+              type="text"
+              id="abouttext"
+              value={nin_gt}
+              onChange={(e) => setNin(e.target.value)}
+            ></input>
+          </label>
+          <label id="labels">
+            Playstation Gamer Tag:
+            <input
+              type="text"
+              id="abouttext"
+              value={ps_gt}
+              onChange={(e) => setPs(e.target.value)}
+            ></input>
+          </label>
+          <label id="labels">
+            Xbox Gamer Tag:
+            <input
+              type="text"
+              id="abouttext"
+              value={xbox_gt}
+              onChange={(e) => setXbox(e.target.value)}
+            ></input>
+          </label>
+          <br></br>
+          <br></br>
+          <label id="labels">
+            Steam Gamer Tag:
+            <input
+              type="text"
+              id="abouttext"
+              value={steam_gt}
+              onChange={(e) => setSteam(e.target.value)}
+            ></input>
+          </label>
+          <label id="labels">
+            Discord User Name:
+            <input
+              type="text"
+              id="abouttext"
+              value={discord_gt}
+              onChange={(e) => setDiscord(e.target.value)}
+            ></input>
+          </label>
+          <div id="butts">
+            <br></br>
+            <button
+              id="butdecon"
+              onClick={() => history.push(`/profile/${userId}`)}
+            >
+              Cancel
+            </button>
+            <button id="butdecon" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

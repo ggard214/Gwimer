@@ -1,0 +1,33 @@
+#formdiv {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: fit-content;
+  margin-left: 10%;
+  margin-bottom: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-shadow: 5px 10px lightgray;
+}
+
+#abouttext {
+  width: 200px;
+  margin-left: 3px;
+}
+#labels {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+#butts {
+  justify-content: space-around;
+  margin-left: 37%;
+}
+
+#butdecon {
+  border: 0px;
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}

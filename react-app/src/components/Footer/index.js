@@ -8,14 +8,18 @@ const Footer = () => {
   return (
     <div id="foots">
       <div id="gregdata">
-        <p>
+        <p id="des">
           <b>Designed by:</b> Greg Gardini
         </p>
+        <div id="headshot">
+          <img className="greghead" src={headshot} alt="Greg Gardini" />
+        </div>
       </div>
-      <div id="headshot">
-        <img className="greghead" src={headshot} alt="Greg Gardini" />
-      </div>
+
       <div id="git">
+        <div>
+          <p id="gitdes">Checkout the Github</p>
+        </div>
         <a
           href="https://github.com/ggard214/Gwimer"
           alt="The github for Gwimer"
@@ -25,7 +29,16 @@ const Footer = () => {
         </a>
       </div>
       <div id="linked">
-        <img className="linkedin" src={linkedin} alt="My LinkedIn" />
+        <div>
+          <p id="linkdes">Follow me on LinkedIn</p>
+        </div>
+        <a
+          href="https://www.linkedin.com/in/greg-gardini-931b943/"
+          alt="My LinkedIn Profile"
+          target="_blank"
+        >
+          <img className="linkedin" src={linkedin} alt="My LinkedIn" />
+        </a>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { authenticate } from "../../services/auth.js";
 import LogoutButton from "../auth/LogoutButton";
 import homeImg from "./Imgs/controller1.png";
+import gwimer from "./Imgs/gwimer.png";
 
 const NavBar = ({ setAuthenticated }) => {
   const dispatch = useDispatch();
@@ -20,31 +21,35 @@ const NavBar = ({ setAuthenticated }) => {
 
   return (
     <nav id="nav">
-      <ul>
-        <li>
+      <div id="allitems">
+        <div id="cont">
           <NavLink to="/home" exact={true} activeClassName="active">
             <img id="homecont" src={homeImg} alt="Home" />
           </NavLink>
-        </li>
-        <li>
-          {user.id && (<NavLink to={`/profile/${user.id}`} exact={true} activeClassName="active">
-            Profile
-          </NavLink>)}
-        </li>
-        <li>
-          <NavLink to="/games" exact={true} activeClassName="active">
-            Games
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton setAuthenticated={setAuthenticated} />
-        </li>
-      </ul>
+          <img id="gwimtext" src={gwimer} alt="Gwimer Home" />
+        </div>
+        <div id="links">
+          <div id="games">
+            <NavLink to="/games" exact={true} activeClassName="active">
+              Games
+            </NavLink>
+          </div>
+          <div>
+            {user.id && (
+              <NavLink
+                to={`/profile/${user.id}`}
+                exact={true}
+                activeClassName="active"
+              >
+                Profile
+              </NavLink>
+            )}
+          </div>
+          <div>
+            <LogoutButton id="logout" setAuthenticated={setAuthenticated} />
+          </div>
+        </div>
+      </div>
     </nav>
   );
 };

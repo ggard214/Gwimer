@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as profileActions from "../../store/profile";
 import { authenticate } from "../../services/auth.js";
-import AboutUserForm from './userForm';
+import AboutUserForm from "./userForm";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
 import { setUser } from "../../store/session";
 import nintendo from "./profimg/nintendo.jpg";
 import playstation from "./profimg/playstation.png";
-import xbox from './profimg/xboxicon.gif';
-import steam from './profimg/steam.png';
-import discord from './profimg/discord.png';
+import xbox from "./profimg/xboxicon.gif";
+import steam from "./profimg/steam.png";
+import discord from "./profimg/discord.png";
 
 const Profile = ({ sessionUser, setAuthenticated }) => {
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
   const userInfo = useSelector((state) => state.session.user);
   const userPic = useSelector((state) => state.profpic);
   const [info, setInfo] = useState(false);
+
   console.log("profpic", userPic);
   let user = {};
 
@@ -34,7 +35,7 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
       dispatch(setUser(user));
     })();
   }, [dispatch, user.id]);
-if (!userInfo) return null;
+  if (!userInfo) return null;
 
   return (
     <>
@@ -47,12 +48,11 @@ if (!userInfo) return null;
           <div id="name">
             <h1>Welcome back, {userInfo.username}</h1>
           </div>
-          <br></br>
           <hr></hr>
         </div>
         <div id="about">
           <button id="editprofilebutton" onClick={toggle}>
-            Edit Profile
+            Edit Your Profile
           </button>
           <div id="component-wrapper" className={info ? "" : "hidden"}>
             <AboutUserForm
@@ -62,49 +62,60 @@ if (!userInfo) return null;
               setAuthenticated={setAuthenticated}
             />
           </div>
-          <div>
-            <p>About me: {userProfile.about_me}</p>
+          <div id="aboutme">
+            <p>
+              <b>About me: </b>
+            </p>
+            <p>{userProfile.about_me}</p>
           </div>
-          <div>
-            <p>Location: {userProfile.location}</p>
+          <br></br>
+          <div id="location">
+            <p>
+              <b>Location: </b>
+            </p>
+            <p>{userProfile.location}</p>
           </div>
-          <div>
-            <p>My gamer tags:</p>
+          <br></br>
+          <div id="gts">
+            <p>
+              <b>My gamer tags:</b>
+            </p>
           </div>
+          <br></br>
           <div id="tags">
-            <div>
-              <p>
-                <img id="iconsNin" src={nintendo} alt="Nintendo Gamer tag" />
-                {userProfile.nin_gt}
-              </p>
+            <div id="taggroup">
+              <div>
+                <img id="icons" src={nintendo} alt="Nintendo Gamer tag" />
+              </div>
+              <div id="nametags">{userProfile.nin_gt}</div>
             </div>
-            <div>
-              <p>
+            <div id="taggroup">
+              <div>
                 <img
-                  id="iconsPS"
+                  id="icons"
                   src={playstation}
                   alt="Playstation Network Gamer tag"
                 />
-                {userProfile.ps_gt}
-              </p>
+              </div>
+              <div id="nametags">{userProfile.ps_gt}</div>
             </div>
-            <div>
-              <p>
-                <img id="iconsXbox" src={xbox} alt="Xbox Gamer tag" />
-                {userProfile.xbox_gt}
-              </p>
+            <div id="taggroup">
+              <div>
+                <img id="icons" src={xbox} alt="Xbox Gamer tag" />
+              </div>
+              <div id="nametags">{userProfile.xbox_gt}</div>
             </div>
-            <div>
-              <p>
-                <img id="iconsSteam" src={steam} alt="Steam Gamer tag" />
-                {userProfile.steam_gt}
-              </p>
+            <div id="taggroup">
+              <div>
+                <img id="icons" src={steam} alt="Steam Gamer tag" />
+              </div>
+              <div id="nametags">{userProfile.steam_gt}</div>
             </div>
-            <div>
-              <p>
-                <img id="iconsDiscord" src={discord} alt="Discord Gamer tag" />
-                {userProfile.discord_gt}
-              </p>
+            <div id="taggroup">
+              <div>
+                <img id="icons" src={discord} alt="Discord Gamer tag" />
+              </div>
+              <div id="nametags">{userProfile.discord_gt}</div>
             </div>
           </div>
         </div>
