@@ -1,7 +1,11 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
+from sqlalchemy import desc
 from app.models import User, Profile, Profpic, db
-from app.forms import ProfileForm
+from app.forms import ProfileForm, ProfPicForm
+from app.config import Config
+from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
+from werkzeug.utils import secure_filename
 
 user_routes = Blueprint('users', __name__)
 
@@ -32,6 +36,33 @@ def user_profpic(user_id):
     if profpic:
         return profpic.to_dict()
     return {}
+
+@user_routes.route('/profpic/<int:user_id>', methods=['PUT'])
+def profile_pic_submit(user_id):
+    form = ProfPicForm()
+    file = request.files.get("profile_photo_file")
+    print("this is to see what file is", file)
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        file = form.data['profile_photo_file']
+        if file:
+            file.filename = secure_filename(file.filename)
+            s3_pic_url = upload_file_to_s3(file)
+        
+        profpic = Profpic.query.filter(Profpic.user_id==user_id).first()
+        if profpic:
+            profpic.pic_url=s3_pic_url['url']
+        else:
+            profpic = Profpic(
+                pic_url=s3_pic_url['url'],
+                user_id=user_id
+            )
+            db.session.add(profpic)
+        db.session.commit()
+        return profpic.to_dict()
+        
+
 
 @user_routes.route('/profile/<int:user_id>', methods=['PUT'])
 def profile_form_submit(user_id):
