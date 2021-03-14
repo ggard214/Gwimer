@@ -12,6 +12,8 @@ class User(db.Model, UserMixin):
 
   profile = db.relationship("Profile", back_populates="user")
   profile_pics = db.relationship("Profpic", back_populates="user")
+  walkthrough = db.relationship("Walkthrough", back_populates="user")
+  walkcomment = db.relationship("walkcomment", back_populates="user")
 
 
   @property
