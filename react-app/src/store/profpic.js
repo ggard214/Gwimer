@@ -26,6 +26,17 @@ export const getProfpic = (userId) => async (dispatch) => {
   return profpic;
 };
 
+export const submitProfPic = (userId, pic_url) => async (dispatch) => {
+  const formData = new FormData();
+  console.log("form data stuff", pic_url)
+  formData.append("profile_photo_file", pic_url);
+  const response = await fetch(`/api/users/profpic/${userId}`, {
+    method: 'PUT',
+    body: formData,
+  })
+  return await response.json();
+}
+
 const profpicReducer = (state = { profpic: null }, action) => {
   let newState = { ...state };
   switch (action.type) {

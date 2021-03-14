@@ -5,6 +5,7 @@ import * as profileActions from "../../store/profile";
 import * as profpicActions from "../../store/profpic";
 import { authenticate } from "../../services/auth.js";
 import AboutUserForm from "./userForm";
+import ProfPicForm from "./picForm";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
 import { setUser } from "../../store/session";
@@ -59,6 +60,18 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
         </div>
         <hr></hr>
         <div id="about">
+          <button id="editprofpicbutt" onClick={toggle}>
+            Update Profile Picture
+          </button>
+          <div id="imgcomponent-wrapper" className={info ? "" : "hidden"}>
+            <ProfPicForm
+              userPic={userPic}
+              info={info}
+              setInfo={setInfo}
+              setAuthenticated={setAuthenticated}
+            />
+          </div>
+          <br></br>
           <button id="editprofilebutton" onClick={toggle}>
             Edit Your Profile
           </button>
