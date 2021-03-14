@@ -2,6 +2,7 @@ import "./profile.css";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as profileActions from "../../store/profile";
+import * as profpicActions from "../../store/profpic";
 import { authenticate } from "../../services/auth.js";
 import AboutUserForm from "./userForm";
 import NavBar from "../NavBar/NavBar";
@@ -20,7 +21,6 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
   const userPic = useSelector((state) => state.profpic);
   const [info, setInfo] = useState(false);
 
-  console.log("profpic", userPic);
   let user = {};
 
   function toggle() {
@@ -31,7 +31,9 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
     (async () => {
       user = await authenticate();
       await dispatch(profileActions.getProfile(parseInt(user.id)));
+      await dispatch(profpicActions.getProfpic(parseInt(user.id)));
       console.log("user info", user);
+      console.log("profpic info", userPic)
       dispatch(setUser(user));
     })();
   }, [dispatch, user.id]);
@@ -44,12 +46,18 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
           <NavBar setAuthenticated={setAuthenticated} />
         </div>
         <div id="userdata">
-          <div id="propic"></div>
+          <div id="propic">
+            <img
+              id="profilepicture"
+              src={userPic.pic_url}
+              alt="Profile Picture"
+            />
+          </div>
           <div id="name">
             <h1>Welcome back, {userInfo.username}</h1>
           </div>
-          <hr></hr>
         </div>
+        <hr></hr>
         <div id="about">
           <button id="editprofilebutton" onClick={toggle}>
             Edit Your Profile

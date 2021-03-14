@@ -10,6 +10,7 @@ class Game(db.Model):
     about = db.Column(db.String)
 
     gameposter = db.relationship("Gameposter", back_populates="game")
+    walkthrough = db.relationship("Walkthrough", back_populates="game")
 
     def to_dict(self):
         return {
