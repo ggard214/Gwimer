@@ -25,6 +25,14 @@ def user_profile(user_id):
         return profile.to_dict()
     return {}
 
+@user_routes.route('/profpic/<int:user_id>')
+@login_required
+def user_profpic(user_id):
+    profpic = Profpic.query.filter(Profpic.user_id==user_id).first()
+    if profpic:
+        return profpic.to_dict()
+    return {}
+
 @user_routes.route('/profile/<int:user_id>', methods=['PUT'])
 def profile_form_submit(user_id):
     form = ProfileForm()

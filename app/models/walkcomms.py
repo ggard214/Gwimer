@@ -8,5 +8,5 @@ class Walkcomment(db.Model):
     walkId = db.Column(db.Integer, db.ForeignKey("walkthroughs.id"), nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
-    walk = db.relationship("Walkthrough", back_populates="walkcomment")
+    walkthrough = db.relationship("Walkthrough", back_populates="walkcomment")
     user = db.relationship("User", back_populates="walkcomment")
