@@ -1,47 +1,54 @@
 #logemail {
-    font-weight: bold;
-    padding-right: 5px;
+  font-weight: bold;
+  padding-right: 5px;
 }
 
 #logemailin {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 #inemail {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 #logpass {
-    font-weight: bold;
-    padding-right: 5px;
+  font-weight: bold;
+  padding-right: 5px;
 }
 
 #logpassin {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 #inpass {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 #logform {
-    border: 1px solid black;
-    height: 200px;
-    background-color:lightgray;
-    padding-top: 20px;
-    border-radius: 5px;
+  border: 1px solid black;
+  height: 200px;
+  background-color: lightgray;
+  padding-top: 20px;
+  border-radius: 5px;
 }
 
 #logtext {
-    margin-left: 35%;
+  margin-left: 35%;
 }
 
 #h2text {
-    color: #FB0001;
-    text-shadow: 1px 1px black;
+  color: #fb0001;
+  text-shadow: 1px 1px black;
 }
 
 #logbut {
-    margin-left: 35%;
-    margin-top: 5px;
+  margin-left: 35%;
+  margin-top: 5px;
+}
+
+#logoutbut {
+  border: 0;
+  background-color: lightgray;
+  cursor: pointer;
+  text-decoration: underline;
 }

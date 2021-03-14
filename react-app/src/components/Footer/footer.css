@@ -3,6 +3,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 
 #linkarea {
@@ -12,16 +13,51 @@
     justify-content: space-between;
 }
 
+#gregdata {
+    display: flex;
+    flex-direction: row;
+}
+
+#headshot {
+    margin-top: 5%;
+}
+
 .greghead {
     height: 50px;
     border-radius: 100px;
     margin-left: 15px;
 }
 
+#des {
+    margin-top: 10%;
+    margin-left: 10px;
+}
+
+#git {
+    display: flex;
+    flex-direction: row;
+}
+
 .gitcircle {
-    height: 50px;
+    height: 55px;
+    margin-top: 20%;
+}
+
+#gitdes {
+    margin-top: 20%;
+}
+
+#linked {
+    display: flex;
+    flex-direction: row;
+}
+
+#linkdes {
+    margin-top: 18%;
 }
 
 .linkedin {
     height: 50px;
+    margin-top: 20%;
+    margin-right: 10px;
 }

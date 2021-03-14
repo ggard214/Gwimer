@@ -1,27 +1,52 @@
-#iconsNin {
+#name {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#editprofilebutton {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: 0px;
+  background-color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#aboutme {
+  margin-left: 5px;
+}
+
+#location {
+  margin-left: 5px;
+}
+
+#gts {
+  margin-left: 5px;
+}
+
+#tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#taggroup {
+  display: flex;
+  flex-direction: row;
+}
+
+#nametags {
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
+#icons {
   width: 30px;
   border-radius: 180px;
 }
 
-#iconsPS {
-  width: 30px;
-  border-radius: 180px;
-}
-
-#iconsXbox {
-  width: 30px;
-  border-radius: 180px;
-}
-
-#iconsSteam {
-  width: 30px;
-  border-radius: 180px;
-}
-
-#iconsDiscord {
-  width: 30px;
-  border-radius: 180px;
-}
 
 #feets {
   height: 75px;
