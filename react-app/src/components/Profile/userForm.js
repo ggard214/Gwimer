@@ -51,7 +51,6 @@ const AboutUserForm = ({ userProfile, info, setInfo }) => {
   return (
     <>
       <div id="formdiv">
-        <h1></h1>
         <form id="about-user-form-wrap" onSubmit={onSubmit}>
           <label id="labels">
             About Me:

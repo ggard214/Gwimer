@@ -4,6 +4,59 @@
     margin: 0;
 }
 
+#homescreen {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#profpicmain {
+  height: 20px;
+  margin-left: 35px;
+}
+
+#poststuff {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 50%;
+}
+
+#userstuff {
+  height: 300px;
+  width: 150px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 10px lightgray;
+}
+
+#trendingtopics {
+  height: 300px;
+  width: 150px;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 10px lightgray;
+}
+
+#trends {
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+#trendhead {
+  margin-left: 15px;
+  margin-top: 2px;
+}
+
+#userdata {
+  display: flex;
+  flex-direction: row;
+  
+}
+
 
 #feets {
   height: 75px;
