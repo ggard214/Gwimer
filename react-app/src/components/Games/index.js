@@ -11,14 +11,6 @@ const Games = ({ setAuthenticated }) => {
   const gameList = useSelector((state) => state.game);
   const [info, setInfo] = useState(false);
 
-  useEffect(() => {
-    (async () => {
-      await dispatch(gameActions.getAllGames);
-      console.log("game info maybe here", gameList);
-      dispatch(gameList);
-    })();
-  }, [dispatch]);
-
   return (
     <>
       <div id="maingames">
@@ -27,7 +19,7 @@ const Games = ({ setAuthenticated }) => {
         </div>
         <div>
           <div>
-            <h1>this is my games page</h1>
+            <h1>this is the future home for my games page</h1>
           </div>
           <div id="feets">
             <Footer />
