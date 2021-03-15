@@ -23,10 +23,11 @@ export const getGame = (game) => async (dispatch) => {
   });
   const game = await response.json();
   dispatch(loadGame(game));
+  console.log("game info", game)
   return game;
 };
 
-const gameReducer = (state = { profile: null }, action) => {
+const gameReducer = (state = { game: null }, action) => {
   let newState = { ...state };
   switch (action.type) {
     case LOAD_GAME:

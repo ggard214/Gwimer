@@ -1,11 +1,24 @@
 import "./games.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as gameActions from '../../store/games';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
-import * as gameActions from '../../store/games';
 
 
 const Games = ({ setAuthenticated }) => {
+  const dispatch = useDispatch();
+  const gameList = useSelector((state) => state.game);
+  const [info, setInfo] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      await dispatch(gameActions.getGame);
+      console.log("game info maybe here", gameList);
+      dispatch(gameList);
+    })();
+  }, [dispatch]);
+
   return (
     <>
       <div id="maingames">

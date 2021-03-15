@@ -34,7 +34,7 @@ const Profile = ({ sessionUser, setAuthenticated }) => {
       await dispatch(profileActions.getProfile(parseInt(user.id)));
       await dispatch(profpicActions.getProfpic(parseInt(user.id)));
       console.log("user info", user);
-      console.log("profpic info", userPic)
+      console.log("profpic info", userPic);
       dispatch(setUser(user));
     })();
   }, [dispatch, user.id]);
