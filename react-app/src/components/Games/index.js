@@ -2,6 +2,7 @@ import "./games.css";
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer";
+import * as gameActions from '../../store/games';
 
 
 const Games = ({ setAuthenticated }) => {

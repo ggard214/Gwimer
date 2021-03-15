@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import profileReducer from './profile';
 import profpicReducer from './profpic';
+import gameReducer from './games';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   profile: profileReducer,
   profpic: profpicReducer,
+  game: gameReducer,
 });
 
 let enhancer;
