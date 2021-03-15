@@ -1,7 +1,7 @@
 const LOAD_GAME = "game/loadGame";
 const SET_GAME = "game/setGame";
 
-export const loadGame = (game) => {
+export const getAllGames = (game) => {
     return {
         type: LOAD_GAME,
         payload: game,
@@ -15,16 +15,10 @@ export const setGame = (game) => {
   };
 };
 
-export const getGame = (game) => async (dispatch) => {
-  const response = await fetch("/api/games", {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const game = await response.json();
-  dispatch(loadGame(game));
-  console.log("game info", game)
-  return game;
+export const getGames = () => async (dispatch) => {
+  const response = await fetch("/api/games");
+  dispatch(getAllGames(response.data));
+  return response;
 };
 
 const gameReducer = (state = { game: null }, action) => {

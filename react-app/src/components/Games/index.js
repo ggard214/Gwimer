@@ -13,7 +13,7 @@ const Games = ({ setAuthenticated }) => {
 
   useEffect(() => {
     (async () => {
-      await dispatch(gameActions.getGame);
+      await dispatch(gameActions.getAllGames);
       console.log("game info maybe here", gameList);
       dispatch(gameList);
     })();

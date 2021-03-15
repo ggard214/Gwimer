@@ -1,6 +1,5 @@
 import "./splash.css";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import LoginForm from "../auth/LoginForm";
 import SignUpForm from "../auth/SignUpForm";
@@ -9,7 +8,6 @@ import Footer from "../Footer";
 import controller from "./splashimgs/controllerblank.png";
 
 const Splash = ({ authenticated, setAuthenticated }) => {
-  const dispatch = useDispatch();
   const [showSignModal, setShowSignModal] = useState(false);
 
   if (authenticated) return <Redirect to="/home" />;
