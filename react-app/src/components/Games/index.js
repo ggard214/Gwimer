@@ -11,6 +11,11 @@ const Games = ({ setAuthenticated }) => {
   const gameList = useSelector((state) => state.game);
   const [info, setInfo] = useState(false);
 
+  const Games = ({ setAuthenticated }) => {
+  const dispatch = useDispatch();
+  const gameList = useSelector((state) => state.game);
+  const [info, setInfo] = useState(false);
+  
   return (
     <>
       <div id="maingames">
@@ -29,5 +34,6 @@ const Games = ({ setAuthenticated }) => {
     </>
   );
 };
+  }
 
 export default Games;
